@@ -13,4 +13,6 @@
         'wizard/reason_wizerd_reject.xml'
     ],
     'application': True,
+    'price':10,
+    'currency':'USD'
 }
