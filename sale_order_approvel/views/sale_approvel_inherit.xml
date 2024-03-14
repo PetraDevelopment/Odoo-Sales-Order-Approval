@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="sale_order_approval_inherit" model="ir.ui.view">
+		<field name="name">sale.order.approval.view.custom</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+
+		<xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="widget">statusbar</attribute>
+           <attribute name="statusbar_visible">draft,sent,waiting_for_verify,waiting_for_approval,sale </attribute>
+            </xpath>
+		
+                                       <!-- <button submit_for_verify"  /> -->          
+				                       
+				<xpath expr="//form/header/button[@name='action_quotation_send']" position="before">
+							<button name="submit_for_verify" type="object" string="Submit FOR VERIFY" class="btn btn-primary"/>
+							<!-- <field name="state" widget="statusbar" statusbar_visible="waiting_for_verify,waiting_for_approval"/>  -->
+				</xpath> 
+				
+				<button name="submit_for_verify" position="attributes">
+								<attribute name="attrs">{'invisible': [
+									('state', 'not in', [ 'draft',]),
+								]}</attribute>
+								 <attribute name="string">Submit to Verify</attribute> 
+					<attribute name="groups">sale_order_approvel.group_can_verify_sales_order</attribute>
+								
+				 </button>
+          
+				  <!-- <xpath expr="//field[@name='date_order']" position="after">
+						<field name="check" widget="text" string="Check"/>
+					</xpath> -->
+			     <!-- Find the button with name="action_confirm" and update its string attribute -->
+			 
+
+						<!-- Modify the action_confirm button -->
+					<xpath expr="//form/header/button[@name='action_confirm'] [2]" position="attributes">
+					      <attribute name="string">Confirm</attribute> 
+						      <attribute name="class">btn btn-primary</attribute> 
+						<attribute name="groups">sale_order_approvel.group_can_approve_sales_order,base.group_erp_manager</attribute>
+    
+						<attribute name="attrs">{'invisible': [('state', 'not in', ['draft', 'waiting_for_approval'])]}</attribute>
+						
+					</xpath> 
+
+					<xpath expr="//form/header/button[@name='action_cancel']" position="attributes">  
+						<attribute name="groups">sale_order_approvel.group_can_approve_sales_order,base.group_erp_manager</attribute>
+						<attribute name="attrs">{'invisible': [('state', '!=', 'sale')]}</attribute>
+					</xpath> 
+					
+			
+			        <!-- button of reject  -->
+
+			    <xpath expr="//form/header/button[@name='action_draft']" position="after">
+			    	<button name="reject_approve" type="object" string="REJECT"  class="btn btn-primary"/>
+				</xpath> 
+			    <!-- <xpath expr="//form/header/button[@name='action_draft']" position="attributes">
+                    <attribute name="groups">sale_order_approvel.group_can_approve_sales_order</attribute>
+				</xpath>  -->
+
+				 <xpath expr="//form/header/button[@name='reject_approve']" position="attributes">
+					<attribute name="string">Reject</attribute> 
+                    <attribute name="attrs">{'invisible': [ ('state', 'not in', ['waiting_for_verify', 'waiting_for_approval'])]}</attribute>
+                    
+					<attribute name="groups">sale_order_approvel.group_can_approve_sales_order,base.group_erp_manager</attribute>
+               </xpath>
+					
+
+					 <xpath expr="//form/header/button[@name='action_draft']" position="after">
+                <button name="submit_for_approval" type="object" string="VERIFY &amp; submit FOR APPROVAL" groups="sale_order_approvel.group_can_approve_sales_order" class="btn btn-primary"/>
+            </xpath> 
+			     <!-- to change state of button approval  don't appear only this case  -->
+			 <button name="submit_for_approval" position="attributes">
+						<attribute name="attrs">{'invisible': [
+						('state', 'not in', [ 'waiting_for_verify',])
+						]}</attribute>
+						<attribute name="groups">sale_order_approvel.group_can_approve_sales_order,base.group_erp_manager</attribute>
+					</button>
+            
+		</field>
+	</record>
+  			     <!-- to inherit  menau module Quotation reject reason  -->
+
+<menuitem id="menu__sale_quotation_reject_reason" 
+        name="Quotation Reject Reason"
+         parent="sale.menu_sale_config"
+         action="action_quotation_reject_reason" 
+        sequence="60" />
+
+
+    
+
+</odoo>
+
+<!-- sequence="10" -->
+				<!-- <xpath expr="//form/header/field[@name='state']" position="attributes">
+				<attribute name="state">statusbar_visible="draft,sent,sale,waiting_for_verify,waiting_for_approval"</attribute> 
+			  </xpath> -->
+
