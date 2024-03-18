@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_can_verify_sales_order" model="res.groups"><!--  #permission per group -->
+        <field name="name">Can Verify Sales Order</field>
+        <!-- Add any other group configurations here if needed -->
+        <!-- <field name="category_id" ref="base.module_category_hidden"/> -->
+    </record>
+
+    <record id="group_can_approve_sales_order" model="res.groups"><!--  #permission per group -->
+        <field name="name">Can Approve Sales Order</field>
+        <!-- Add any other group configurations here if needed [('id', '=', 1)]  # Assuming 1 is the ID of the base.group_erp_manager group-->
+    </record>
+
+
+
+
+</odoo>
+
