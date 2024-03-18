@@ -15,7 +15,7 @@
                     </sheet>
                     <footer>
                         <button name="action_reject_quotation" string="Reject Quotation" type="object" class="btn-primary"/>
-                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                        <button name='action_cancel_wizard' string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
             </field>

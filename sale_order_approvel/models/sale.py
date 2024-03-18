@@ -1,5 +1,6 @@
 from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError  # Import UserError
 
 
 class SaleOrder(models.Model):
@@ -50,9 +51,17 @@ class SaleOrder(models.Model):
         return {
 
         }
+    reject_reason = fields.Char(string="Reject Reason", tracking=3)
 
     def action_reject_quotation_wizard(self):
         print('action wizard')
+
+        # Get the default reason_reject from the context
+        # default_reason_reject = self._context.get('default_reason_reject', '')
+
+        # # Store the default_reason_reject in reasonin_sale field
+        # self.reasonin_sale = default_reason_reject
+        print("reasonin_sale == ", self.reject_reason)
         return {
 
             'type': 'ir.actions.act_window',
@@ -60,20 +69,21 @@ class SaleOrder(models.Model):
             'res_model': 'reject.reason.wizard',
             'target': 'new',
             'context': {
-                'default_reason_reject': ' ',
-                'default_name': self.name
+                'default_reason_reject': '',
+                'default_name': self.name,
+                'default_sale_order_id': self.id
             },
         }
 
-    def action_cancel(self):
-
-        return super().action_cancel()
-
     def reject_approve(self):
         action = self.action_reject_quotation_wizard()
-        for rec in self:
-            rec.state = 'cancel'
         return action
+
+    def action_cancel(self):
+        # Override the action_cancel method to perform additional actions
+        for order in self:
+            order.state = 'cancel'
+        return super(SaleOrder, self).action_cancel()
 
         # return {
         #     'name': 'Select Quotation Reject Reason',

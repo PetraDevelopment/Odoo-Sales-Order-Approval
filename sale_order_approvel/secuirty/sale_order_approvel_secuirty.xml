@@ -14,30 +14,9 @@
             <!--   #permission per group  -->
             <field name="name">Can Approve Sales Order</field>
               
-             
            
                 </record>
 
-    <!-- <record id="rule_hide_confirm_button" model="ir.rule">
-    <field name="name">Hide Confirm Button for Group Can Verify Sales Order</field>
-    <field name="model_id" ref="sale_order_approvel.model_sale_order"/>
-   <field name="domain_force">[('group_ids', 'not in', [(6, 0, ['sale_order_approvel.group_can_verify_sales_order'])])] </field>
-      
-      <field name="perm_read" eval="True"/>
-    <field name="perm_write" eval="False"/>
-    <field name="perm_create" eval="False"/>
-    <field name="perm_unlink" eval="False"/> -->
-
- 
-    <!-- <record id="sale_order_approve_rule_hide_button" model="ir.rule">
-    <field name="name">Hide Button for Specific Groups</field>
-    <field name="model_id" ref="sale_order_approvel.model_sale_order"/>
-    <field name="domain_force">[('group_ids', 'not in', [(6, 0, ['sale_order_approvel.group_can_verify_sales_order'])])] </field>
-    <field name="groups" eval="[(4, ref('sale_order_approvel.group_can_verify_sales_order'))]"/>
-    </record>   
-     <field name="domain_force">[('user_id.groups_id', 'not in', [(4, env.ref('sale_order_approvel.group_can_verify_sales_order').id)])]</field>
-     <field name ="implied_ids" eval="[(4,ref('group_can_verify_sales_order'))]"/>
-    -->
 </data>
 
 

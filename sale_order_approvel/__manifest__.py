@@ -1,8 +1,11 @@
 {
     'name': 'Approve Sales Order',
-    'author': 'omar hassan',
-    'website': 'www.t-petra.com',
-    'summary': 'Odoo 16 Developer',
+    'author':'Petra Software',
+    'company': 'Petra Software',
+    'maintainer': 'Petra Software',
+    'website':'www.t-petra.com',
+     'license': 'LGPL-3',
+    'summary':'Sale Order Approvel',
     'depends': ['base', 'sale', 'mail'],
     'data': [
         'secuirty/sale_order_approvel_secuirty.xml',
@@ -13,6 +16,7 @@
         'wizard/reason_wizerd_reject.xml'
     ],
     'application': True,
-    'price':10,
+     'images': ['static/description/banner.png'],
+      'price':10,
     'currency':'USD'
 }
