@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Order Approval</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .message {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .responsive-img {
+            width: 100% !important;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .gray-square {
+            width: 800px; 
+            height: 400px; 
+            background-color: 	#E8E8E8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .image-container {
+                flex-direction: column;
+            }
+            .gray-square {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sales Order Approval</h1>
+        <div class="message">
+            <h4>- Go to the Settings -> Users & Companies-> Users. Two groups have been made: 
+              'Can Verify Sales Order' and 'Can Approve Sales Order'. Then assign a particular 
+              group by activating it t
+              o that user whom you want that he/she can verify/approve 
+              the Sale Order
+              (Admin will check can approve sales order – user will check can verify sales order)
+              </h4>
+        </div>
+        <img src="assets/image1.png" alt="Image 1" class="responsive-img" style="width: 100%;">
+        
+        <div class="message">
+            <h4>- When you create any quotation, you can see the 'Submit for Verify' button.</h4>
+        </div>
+        <div class="image-container">
+            <div class="gray-square">
+                <img src="assets/image2.png" alt="Image 2" class="responsive-img" style="width: 100%;">
+            </div>
+        </div>
+        
+        <div class="message">
+            <h4>- After clicking on 'Submit for Verify', the order state will update from 'Quotation' 
+              to 'Waiting for Verify'. 
+              </h4>
+        </div>
+        <img src="assets/image3.png" alt="Image 3" class="responsive-img" style="width: 100%;">
+        
+        <div class="message">
+            <h4>- In list view you will find your order with state “Waiting for verify”</h4>
+        </div>
+        <div class="image-container">
+            <div class="gray-square">
+                <img src="assets/image4.png" alt="Image 4" class="responsive-img" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="message">
+            <h4>- When admin get notified quotation</h4>
+        </div>
+        <img src="assets/image5.png" alt="Image 5" class="responsive-img" style="width: 100%;">
+
+        <div class="message">
+            <h4>- After Verifying the order state will be updated from 'Waiting for Verify' to 
+              'Waiting For Approval'
+              </h4>
+        </div>
+        <div class="image-container">
+            <div class="gray-square">
+                <img src="assets/image6.png" alt="Image 6" class="responsive-img" style="width: 100%;">
+            </div>
+        </div>
+        
+        <div class="message">
+            <h4>- After approval the order state will be updated to 'Sales Order'</h4>
+        </div>
+        <img src="assets/image7.png" alt="Image 7" class="responsive-img" style="width: 100%;">
+
+        <div class="message">
+            <h4>- Rejection Process
+              First, you have to create the rejection reason in Sales -> configuration -> Quotation Reject Reason
+              </h4>
+        </div>
+        <div class="image-container">
+            <div class="gray-square">
+                <img src="assets/image8.png" alt="Image 8" class="responsive-img" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="message">
+            <h4>- To Reject Quotation, select the rejection reason and then click 'Reject Quotation'.</h4>
+        </div>
+        <img src="assets/image9.png" alt="Image 9" class="responsive-img" style="width: 100%;">
+        <div class="image-container">
+          <div class="gray-square">
+              <img src="assets/image10.png" alt="Image 10" class="responsive-img" style="width: 100%;">
+          </div>
+      </div>
+
+        <div class="message">
+            <h4>- The order state updated to 'Cancelled'.</h4>
+        </div>
+        <div class="image-container">
+            <div class="gray-square">
+                <img src="assets/image11.png" alt="Image 11" class="responsive-img" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="message">
+            <h4>- Reject Reason will appear in history </h4>
+        </div>
+        <img src="assets/image12.png" alt="Image 12" class="responsive-img" style="width: 100%;">
+
+     
+      
+
+    </div>
+</body>
+</html>
