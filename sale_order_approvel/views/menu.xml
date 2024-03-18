@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu Items -->
+    <menuitem id="menu_quotation_reject_reason_root" 
+    name="Quotation Reject Reason" 
+    sequence="10"/>
+        <!--  name menu for user  -->
+        <!--  opertion_surgery inherit from menu_hospital_root -->
+</odoo> 
